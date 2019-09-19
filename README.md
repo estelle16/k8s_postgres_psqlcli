@@ -1,0 +1,1 @@
+This project allows the psqlcli pod to connect and communicate with postsql pod.
