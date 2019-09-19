@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psqlcli
+  labels:
+    app: psqlcli_deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psqlcli_pod
+  template:
+    metadata:
+      labels:
+        app: psqlcli_pod
+    spec:
+      containers:
+      - name: psqlcli
+        image: estelle321w/psql_cli:1.0
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+        ports:
+        - containerPort: 5433
